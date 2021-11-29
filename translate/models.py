@@ -3,7 +3,7 @@ import urllib.request
 import argparse
 import os
 
-MODEL_JSON = "latest.json"
+MODEL_JSON = "sample.json"
 dirname = os.path.dirname(__file__)
 filename = os.path.join(dirname, f"models/{MODEL_JSON}")
 
