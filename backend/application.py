@@ -5,8 +5,10 @@ from argostranslate import package, translate
 from os import getenv, listdir
 import os
 import languages
+from fastapi import FastAPI
 
-app = Flask(__name__)
+app = FastAPI()
+#app = Flask(__name__)
 
 MODELS_PATH = os.path.join(os.path.dirname(__file__), "models/downloaded/")
 models = listdir(MODELS_PATH)
@@ -113,12 +115,3 @@ def download_model(name):
 @app.route("/")
 def index():
     return str(names), 200, { "content-type": "text/plain" }
-
-def main():
-    host = getenv("TRANSLATE_HOST", default="0.0.0.0")
-    port = getenv("TRANSLATE_PORT", default=3000)
-
-    app.run(host=host, port=port)
-
-if __name__ == "__main__":
-    main()
